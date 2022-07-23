@@ -1,11 +1,7 @@
 # Action-Openwrt
 
-默认管理IP地址： 10.10.10.100
+默认管理IP地址： 192.168.85.1
 
 Lean-X64默认密码 password
 
-Lienol-X64默认密码 空
-
-![](https://github.com/xiaotan8/Openwrt-actions/workflows/Openwrt-AutoBuild/badge.svg)
-![](https://img.shields.io/github/downloads/xiaotan8/Openwrt-actions/total)
-![](https://img.shields.io/github/v/release/xiaotan8/Openwrt-actions)
+[![Openwrt-AutoBuild](https://github.com/xpfoxs/Build_OpenWRT/actions/workflows/Openwrt-AutoBuild.yml/badge.svg)](https://github.com/xpfoxs/Build_OpenWRT/actions/workflows/Openwrt-AutoBuild.yml)
