@@ -19,7 +19,6 @@ env:
 jobs:
   build:
     runs-on:  ubuntu-latest
-    timeout-minutes: 1200
     if: github.event.repository.owner.id == github.event.sender.id
 
     name: Build ${{matrix.target}}
@@ -29,8 +28,7 @@ jobs:
         target: [lean-x64]
     
     steps:
-    - name: Checkout
-      timeout-minutes: 1200
+    - name: 检查
       uses: actions/checkout@v2
        
     - name: 设置日期
@@ -126,7 +124,6 @@ jobs:
         find dl -size -1024c -exec rm -f {} \;
         
     - name: 开始编译固件
-      timeout-minutes: 1200
       id: compile
       run: |
         cd openwrt
