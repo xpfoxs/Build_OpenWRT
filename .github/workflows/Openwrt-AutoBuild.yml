@@ -36,10 +36,11 @@ jobs:
         sudo timedatectl set-timezone 'Asia/Shanghai'
         date=$(date +%Y-%m-%d)
         echo "DATE=$date" >> $GITHUB_ENV
-    - name: 消息推送-开启编译
-      run: | 
-        curl https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?text=New开始编译${{matrix.target}}固件-${{ env.DATE }}
-        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=New开始编译${{matrix.target}}固件-${{ env.DATE }}"
+        
+#    - name: 消息推送-开启编译
+#      run: | 
+#        curl https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?text=New开始编译${{matrix.target}}固件-${{ env.DATE }}
+#        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=New开始编译${{matrix.target}}固件-${{ env.DATE }}"
       
     - name: 开始安装编译所需系统
       env:
