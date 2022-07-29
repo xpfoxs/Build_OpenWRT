@@ -39,8 +39,8 @@ jobs:
         
 #    - name: 消息推送-开启编译
 #      run: | 
-#        curl https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?text=New开始编译${{matrix.target}}固件-${{ env.DATE }}
-#        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=New开始编译${{matrix.target}}固件-${{ env.DATE }}"
+#        curl https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?text=开始编译${{matrix.target}}固件-${{ env.DATE }}
+#        curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=开始编译${{matrix.target}}固件-${{ env.DATE }}"
       
     - name: 开始安装编译所需系统
       env:
@@ -215,8 +215,8 @@ jobs:
 
     - name: 微信消息通知
       if: env.WECHAT_NOTIFICATION == 'true' && !cancelled() && steps.compile.outputs.status == 'success'
-      run: curl https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?text=恭喜,New固件${{matrix.target}}编译完成.
+      run: curl https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?text=恭喜,固件${{matrix.target}}编译完成.
 
     - name: Telegram消息通知
       if: env.TELEGRAM_NOTIFICATION == 'true' && !cancelled() && steps.compile.outputs.status == 'success'
-      run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=恭喜,New固件${{matrix.target}}编译完成."
+      run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=恭喜,固件${{matrix.target}}编译完成."
