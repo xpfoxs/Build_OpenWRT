@@ -221,3 +221,22 @@ jobs:
     - name: Telegram消息通知
       if: env.TELEGRAM_NOTIFICATION == 'true' && !cancelled() && steps.compile.outputs.status == 'success'
       run: curl "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=恭喜,固件${{matrix.target}}编译完成."
+
+    - name: 清理Actions空间
+      if: env.Del_WorkFlow == 'true'
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+          token: ${{ secrets.SUPER_TOKEN }}
+          repository: ${{ github.repository }}
+          retain_days: 7
+          keep_minimum_runs: 0
+    
+    - name: 删除releases
+      if: env.Del_Releases == 'true'
+      uses: danshui-git/delete-older-releases@main
+      with:
+        repo: ${{ github.repository }}
+        keep_latest: 7
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.SUPER_TOKEN }}
