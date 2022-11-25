@@ -65,7 +65,9 @@ jobs:
         echo "UPLOAD_TO_REALEASE=${UPLOAD_TO_REALEASE}" >> $GITHUB_ENV
         echo "UPLOAD_TO_COWTRANSFER=${UPLOAD_TO_COWTRANSFER}" >> $GITHUB_ENV
         echo "WECHAT_NOTIFICATION=${WECHAT_NOTIFICATION}" >> $GITHUB_ENV
-        echo "TELEGRAM_NOTIFICATION=${WECHAT_NOTIFICATION}" >> $GITHUB_ENV
+        echo "TELEGRAM_NOTIFICATION=${TELEGRAM_NOTIFICATION}" >> $GITHUB_ENV
+        echo "Del_WorkFlow=${Del_WorkFlow}" >> $GITHUB_ENV
+        echo "Del_Releases=${Del_Releases}" >> $GITHUB_ENV
         
     - name: 下载源码
       run: |
